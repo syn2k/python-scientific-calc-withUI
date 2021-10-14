@@ -13,7 +13,7 @@ root.geometry("480x624+20+20")
 
 """roott=TK()
 roott.title("Conversion")
-roott.configure(background="Gray")
+roott.configure(background="Green")
 roott.resizable(W=False, H=False)
 roott.geometry("944x624+20+20")
 """
@@ -91,6 +91,26 @@ class Calc():
         self.Clear_Entry()
         self.total=0
 
+    def display(self, value):
+        text.delete(0, END)
+        text.insert(0, value)
+
+    def PI(self):
+        self.reult=False
+        self.current=math.PI
+        self.display(self.current)
+
+
+    def Tau(self):
+        self.reult=False
+        self.current=math.Tau
+        self.display(self.current)
+        
+    def e(self):
+        self.reult=False
+        self.current=math.e
+        self.display(self.current)
+
     def Tanh(self):
         self.reult=False
         self.current=math.Tanh(math.radians(float(text.get())))
@@ -116,21 +136,6 @@ class Calc():
         self.current=math.log(float(text.get()))
         self.display(self.current)
         
-    def exp(self):
-        self.reult=False
-        self.current=math.exp(float(text.get()))
-        self.display(self.current)
-        
-    def mathsPM(self):
-        self.reult=False
-        self.current=-(float(text.get()))
-        self.display(self.current)
-
-    def Square(self):
-        self.reult=False
-        self.current=math.sqrt(float(text.get()))
-        self.display(self.current)
-        
     def Cos(self):
         self.reult=False
         self.current=math.Cos(math.radians(float(text.get())))
@@ -140,6 +145,7 @@ class Calc():
         self.reult=False
         self.current=math.Cosh(math.radians(float(text.get())))
         self.display(self.current)
+
 
 #================Display================================================================================================
 
@@ -181,35 +187,35 @@ btnPM=Button(calc, text=chr(177), W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg
 
 #===================Scientific Calculator====================================================================================================================================================
 
-btnTan=Button(calc, text="Tan", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.Tan).grid(row=1, column=6, pady=1)
-btnSin=Button(calc, text="Sin", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.Sin).grid(row=1, column=7, pady=1)
+btnTan=Button(calc, text="Tan", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.Tan).grid(row=1, column=6, pady=1)
+btnSin=Button(calc, text="Sin", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.Sin).grid(row=1, column=7, pady=1)
 
-btnPi=Button(calc, text='π', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.PI).grid(row=1, column=4, pady=1)
-btnCos=Button(calc, text="Cos", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.Cos).grid(row=1, column=5, pady=1)
+btnPi=Button(calc, text='π', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.PI).grid(row=1, column=4, pady=1)
+btnCos=Button(calc, text="Cos", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.Cos).grid(row=1, column=5, pady=1)
 
-btnTanh=Button(calc, text="Tanh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.Tanh).grid(row=2, column=6, pady=1)
-btnSinh=Button(calc, text="Sinh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.Sinh).grid(row=2, column=7, pady=1)
+btnTanh=Button(calc, text="Tanh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.Tanh).grid(row=2, column=6, pady=1)
+btnSinh=Button(calc, text="Sinh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.Sinh).grid(row=2, column=7, pady=1)
 
-btnLog=Button(calc, text='log', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.log).grid(row=3, column=4, pady=1)
-btninv=Button(calc, text="Inv", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=lambda:added_value.operation("inv")).grid(row=3, column=5, pady=1)
+btnLog=Button(calc, text='log', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.log).grid(row=3, column=4, pady=1)
+btninv=Button(calc, text="Inv", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=lambda:added_value.operation("inv")).grid(row=3, column=5, pady=1)
 
 btnMod=Button(calc, text="Mod", W=6, H=2, font=('arial', 20, 'bold'), bd=4, command=lambda:added_value.operation("mod")).grid(row=3, column=6, pady=1)
-btnE=Button(calc, text="e", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.e).grid(row=3, column=7, pady=1)
+btnE=Button(calc, text="e", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.e).grid(row=3, column=7, pady=1)
 
-btnLog2=Button(calc, text='log2', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.log2).grid(row=4, column=4, pady=1)
-btnDeg=Button(calc, text="deg", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.deg).grid(row=4, column=5, pady=1)
+btnLog2=Button(calc, text='log2', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.log2).grid(row=4, column=4, pady=1)
+btnDeg=Button(calc, text="deg", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.deg).grid(row=4, column=5, pady=1)
 
-btnACosh=Button(calc, text="aCosh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.aCosh).grid(row=4, column=6, pady=1)
-btnASinh=Button(calc, text="aSinh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.aSinh).grid(row=4, column=7, pady=1)
+btnACosh=Button(calc, text="aCosh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.aCosh).grid(row=4, column=6, pady=1)
+btnASinh=Button(calc, text="aSinh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.aSinh).grid(row=4, column=7, pady=1)
 
-btn2Pi=Button(calc, text='2π', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.Tau).grid(row=2, column=4, pady=1)
-btnCosh=Button(calc, text="Cosh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="gray", command=added_value.Cosh).grid(row=2, column=5, pady=1)
+btn2Pi=Button(calc, text='2π', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.Tau).grid(row=2, column=4, pady=1)
+btnCosh=Button(calc, text="Cosh", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Green", command=added_value.Cosh).grid(row=2, column=5, pady=1)
 
-btnLog10=Button(calc, text='log10', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.log10).grid(row=5, column=4, pady=1)
-btnLog1p=Button(calc, text="log1p", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.log1p).grid(row=5, column=5, pady=1)
+btnLog10=Button(calc, text='log10', W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.log10).grid(row=5, column=4, pady=1)
+btnLog1p=Button(calc, text="log1p", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.log1p).grid(row=5, column=5, pady=1)
 
-btnExpm1=Button(calc, text="expm1", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.expm1).grid(row=5, column=6, pady=1)
-btnLgamma=Button(calc, text="lgamma", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Aqua", command=added_value.lgamma).grid(row=5, column=7, pady=1)
+btnExpm1=Button(calc, text="expm1", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.expm1).grid(row=5, column=6, pady=1)
+btnLgamma=Button(calc, text="lgamma", W=6, H=2, font=('arial', 20, 'bold'), bd=4, bg="Cyan", command=added_value.lgamma).grid(row=5, column=7, pady=1)
 
 #===============================Display Text======================================================================================================================================
 
