@@ -23,6 +23,73 @@ calc.grid()
 
 #=============Functions==================================================================================================
 #to be added
+class Calc():
+    def __init__(self):
+        self.total=0
+        self.current=""
+        self.input_value=True
+        self.check_Sum=False
+        self.op=""
+        self.result=False
+    def numberEnter(self, num):
+        self.result=False
+        firstnum=text.get()
+        secondnum=str(num)
+        if self.input_value:
+            self.current=secondnum
+            self.input_value=False
+        else:
+            if secondnum=='.':
+                if secondnum in firstnum:
+                    return
+            self.current=firstnum+secondnum
+        self.display(self.current)
+
+    def Sum_of_total(self):
+        self.result=True
+        self.current=float(self.current)
+        if self.check_Sum==True:
+            self.valid_function()
+        else:
+            self.total=float(text.get())
+
+    def valid_function(self):
+        if self.op=="add":
+            self.total+=self.current
+        if self.op=="sub":
+            self.total-=self.current
+        if self.op=="multi":
+            self.total*=self.current
+        if self.op=="divide":
+            self.total/=self.current    
+        if self.op=="mod":
+            self.total%=self.current
+        if self.op=="inv":
+            self.total=1/self.current
+        self.input_value=True
+        self.check_Sum=False
+        self.display(self.total)
+        
+    def operation(self, op):
+        self.current=float(self.current)
+        if self.check_Sum:
+            self.valid_function()
+        elif not self.result:
+            self.total=self.current
+            self.input_value=True
+        self.check_Sum=True
+        self.op=op
+        self.result=False
+
+    def Clear_Entry(self):
+        self.result=False
+        self.current="0"
+        self.display(0)
+        self.input_value=True
+
+    def all_Clear_Entry(self):
+        self.Clear_Entry()
+        self.total=0
 
 #================Display================================================================================================
 
