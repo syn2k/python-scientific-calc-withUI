@@ -91,6 +91,56 @@ class Calc():
         self.Clear_Entry()
         self.total=0
 
+    def Tanh(self):
+        self.reult=False
+        self.current=math.Tanh(math.radians(float(text.get())))
+        self.display(self.current)
+
+    def Tan(self):
+        self.reult=False
+        self.current=math.Tan(math.radians(float(text.get())))
+        self.display(self.current)
+        
+    def Sinh(self):
+        self.reult=False
+        self.current=math.Sinh(math.radians(float(text.get())))
+        self.display(self.current)
+        
+    def Sin(self):
+        self.reult=False
+        self.current=math.Sin(math.radians(float(text.get())))
+        self.display(self.current)
+        
+    def log(self):
+        self.reult=False
+        self.current=math.log(float(text.get()))
+        self.display(self.current)
+        
+    def exp(self):
+        self.reult=False
+        self.current=math.exp(float(text.get()))
+        self.display(self.current)
+        
+    def mathsPM(self):
+        self.reult=False
+        self.current=-(float(text.get()))
+        self.display(self.current)
+
+    def Square(self):
+        self.reult=False
+        self.current=math.sqrt(float(text.get()))
+        self.display(self.current)
+        
+    def Cos(self):
+        self.reult=False
+        self.current=math.Cos(math.radians(float(text.get())))
+        self.display(self.current)
+        
+    def Cosh(self):
+        self.reult=False
+        self.current=math.Cosh(math.radians(float(text.get())))
+        self.display(self.current)
+
 #================Display================================================================================================
 
 
