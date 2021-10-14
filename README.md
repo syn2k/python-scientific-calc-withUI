@@ -1,1 +1,1 @@
-# Scientific-Calculator-using-Python
+# Scientific calculator made to learn python with UI.
